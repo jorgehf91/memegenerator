@@ -1,22 +1,6 @@
 import React from "react";
 import memeData from "../memesData"
 
-/**
-     * Challenge: 
-     * As soon as the Meme component loads the first time,
-     * make an API call to "https://api.imgflip.com/get_memes".
-     * 
-     * When the data comes in, save just the memes array part
-     * of that data to the `allMemes` state
-     * 
-     * Think about if there are any dependencies that, if they
-     * changed, you'd want to cause to re-run this function.
-     * 
-     * Hint: for now, don't try to use an async/await function.
-     * Instead, use `.then()` blocks to resolve the promises
-     * from using `fetch`. We'll learn why after this challenge.
-     */
-
 export default function Meme (){
 
     const [meme, setMeme] = React.useState({
@@ -37,9 +21,8 @@ export default function Meme (){
     )
 
     function getRandMeme(){
-        const memesArray = allMemeImages
-        const randIndex = Math.floor(Math.random() * memesArray.length)
-        const url = memesArray[randIndex].url
+        const randIndex = Math.floor(Math.random() *  allMemeImages.length)
+        const url =  allMemeImages[randIndex].url
 
         setMeme( prevMeme => ({
             ...prevMeme, 
@@ -56,7 +39,6 @@ export default function Meme (){
             }
         ))
     }
-    console.log(meme)
 
     return (
         <div className="meme">
